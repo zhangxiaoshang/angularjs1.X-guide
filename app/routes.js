@@ -9,12 +9,12 @@ export default function routes($urlRouterProvider, $stateProvider, $locationProv
 		controllerAs: 'Home'
 	}
 
-	let demo = {
-		name: 'demo',
-		url: '/demo',
-		template: require('./views/demo/index.html'),
-		constroller: 'DemoController',
-		constrollerAs: 'Demo'
+	let guide = {
+		name: 'guide',
+		url: '/guide',
+		template: require('./views/guide/index.html'),
+		controller: 'GuideController',
+		controllerAs: 'Guide'
 	}
 
 	let about = {
@@ -25,10 +25,12 @@ export default function routes($urlRouterProvider, $stateProvider, $locationProv
 		controllerAs: 'About'
 	}
 
-	// $locationProvider.html5Mode(true);
+
+	// 使用html5Mode需要在<head></head>添加添加 <base href="/"> 标签
+	$locationProvider.html5Mode(true);
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider.state(home);
-	$stateProvider.state(demo);
+	$stateProvider.state(guide);
 	$stateProvider.state(about);
 }

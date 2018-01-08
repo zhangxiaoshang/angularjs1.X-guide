@@ -15,8 +15,9 @@ module.exports = {
         historyApiFallback: true,
         inline: true,
         proxy: {
-            '/api': {
-                target: 'http://192.168.100.113:3000',
+            '/v2': {
+                // target: 'http://192.168.100.113:3000',
+                target: 'https://api.douban.com/v2/loc/list/',
                 secure: false
             }
         }
