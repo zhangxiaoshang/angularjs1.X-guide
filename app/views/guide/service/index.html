@@ -1,3 +1,52 @@
 <div id="service">
-	This Is {{ Service.name }}
+	<h3>Path</h3>
+	
+	<code>angularJs-1x/app/views/guide/service/</code>
+
+	<h3>通过自定义 service 查询当前位置</h3>
+	<hr>
+
+	<table class="table">
+		<tr>
+			<th>代号</th>
+			<th>区号</th>
+			<th>拼音</th>
+			<th>城市</th>
+			<th>经度</th>
+			<th>纬度</th>
+		</tr>
+		<tr>
+			<td ng-bind="Service.location.abbr"></td>
+			<td ng-bind="Service.location.area_code"></td>
+			<td ng-bind="Service.location.pinyin"></td>
+			<td ng-bind="Service.location.name"></td>
+			<td ng-bind="Service.location.longitude"></td>
+			<td ng-bind="Service.location.latitude"></td>
+		</tr>
+	</table>
+
+	<h3>通过自定义 factory 查询热门城市</h3>
+	<table class="table">
+		<tr>
+			<th>代号</th>
+			<th>区号</th>
+			<th>拼音</th>
+			<th>城市</th>
+			<th>经度</th>
+			<th>纬度</th>
+		</tr>
+		<tr ng-repeat="city in Service.hotCities">
+			<td ng-bind="city.abbr"></td>
+			<td ng-bind="city.area_code"></td>
+			<td ng-bind="city.pinyin"></td>
+			<td ng-bind="city.name"></td>
+			<td ng-bind="city.longitude"></td>
+			<td ng-bind="city.latitude"></td>
+		</tr>
+	</table>
+
+	<h3>Tip</h3>
+	<p>这里接口请求的地址是 <b>http://cangdu.org:8001/v1/cities</b>这是别人的一个开源项目</p>
+	<p>直接请求该地址会有跨域问题，在开发环境下，为解决跨域问题，可以在请求处使用和web服务相同的地址(这样就不是跨域了)</p>
+	<p>然后配置 <b>webpack.dev.config.js文件中 -> devServer.proxy </b> 将请求代理到真实API服务器</p>
 </div>

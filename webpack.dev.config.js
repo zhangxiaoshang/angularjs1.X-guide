@@ -15,9 +15,8 @@ module.exports = {
         historyApiFallback: true,
         inline: true,
         proxy: {
-            '/v2': {
-                // target: 'http://192.168.100.113:3000',
-                target: 'https://api.douban.com/v2/loc/list/',
+            '/v1': {
+                target: 'http://cangdu.org:8001',
                 secure: false
             }
         }

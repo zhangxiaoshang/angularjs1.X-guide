@@ -17,8 +17,17 @@ export default function routes ($urlRouterProvider, $stateProvider) {
 		controllerAs: 'Service'
 	}
 
+	let directive = {
+		name: 'guide.directive',
+		url: '/directive',
+		template: require('./directive/index.html'),
+		controller: 'DirectiveController',
+		controllerAs: 'Directive'
+	}
+
 	$urlRouterProvider.otherwise('/')
 
 	$stateProvider.state(dataBind)
 	$stateProvider.state(service)
+	$stateProvider.state(directive)
 }

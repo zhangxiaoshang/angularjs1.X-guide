@@ -3,19 +3,24 @@ export default class Http {
 		this.$http = $http
 	}
 
-	getCityList () {
-		this.$http({
-			method: 'GET',
-			url: 'http://localhost:8080/v2/loc/list',
-			params: {
-				at:'4758392320.25754',
-				token:'PK4hYodeNjMRbxP24orb'
-			}
-		})
-		.then(res => {
-			console.log(res)
-		}, err => {
-			console.log(err)
+	getLocation (type) {
+		return new Promise ((resolve, reject) => {
+			this.$http({
+				method: 'GET',
+				url: 'http://localhost:8080/v1/cities',
+				params: {
+					type: type
+				}
+			})
+			.then(res => {
+				if (res.status === 200) {
+					resolve(res.data)					
+				} else {
+					reject (res)
+				}
+			}, err => {
+				reject(err)
+			})
 		})
 	}
 }
